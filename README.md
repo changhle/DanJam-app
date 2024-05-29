@@ -1,6 +1,6 @@
-# capstone
+# DanJam
 
-A new Flutter project.
+GPT-based sleep/mental care app service using sleep data.
 
 ## Getting Started
 
