@@ -1,0 +1,107 @@
+[
+  {
+    "wake_up_time": 1716247380,
+    "min_hr": 58,
+    "items": [
+      {
+        "end_time": 1716228940,
+        "start_time": 1716227640,
+        "state": 3
+      },
+      {
+        "state": 2,
+        "end_time": 1716229930,
+        "start_time": 1716228940
+      },
+      {
+        "end_time": 1716230680,
+        "state": 3,
+        "start_time": 1716229930
+      },
+      {
+        "end_time": 1716232930,
+        "start_time": 1716230680,
+        "state": 2
+      },
+      {
+        "state": 4,
+        "end_time": 1716234190,
+        "start_time": 1716232930
+      },
+      {
+        "end_time": 1716235690,
+        "state": 3,
+        "start_time": 1716234190
+      },
+      {
+        "end_time": 1716236500,
+        "state": 2,
+        "start_time": 1716235690
+      },
+      {
+        "end_time": 1716237520,
+        "start_time": 1716236500,
+        "state": 3
+      },
+      {
+        "start_time": 1716237520,
+        "end_time": 1716239290,
+        "state": 2
+      },
+      {
+        "end_time": 1716241930,
+        "state": 4,
+        "start_time": 1716239290
+      },
+      {
+        "end_time": 1716243100,
+        "start_time": 1716241930,
+        "state": 3
+      },
+      {
+        "start_time": 1716243100,
+        "end_time": 1716245290,
+        "state": 2
+      },
+      {
+        "state": 4,
+        "end_time": 1716246940,
+        "start_time": 1716245290
+      },
+      {
+        "start_time": 1716246940,
+        "end_time": 1716247120,
+        "state": 3
+      },
+      {
+        "state": 4,
+        "end_time": 1716247150,
+        "start_time": 1716247120
+      },
+      {
+        "start_time": 1716247150,
+        "state": 3,
+        "end_time": 1716247380
+      }
+    ],
+    "sleep_deep_duration": 135,
+    "avg_hr": 63,
+    "sleep_awake_duration": 0,
+    "device_wake_up_time": 1716247380,
+    "has_rem": true,
+    "sleep_light_duration": 101,
+    "max_hr": 82,
+    "has_stage": true,
+    "sleep_rem_duration": 93,
+    "bedtime": 1716227640,
+    "duration": 329,
+    "device_bedtime": 1716227640,
+    "awake_count": 0,
+    "name": "",
+    "sex": "",
+    "birth": "",
+    "height": "",
+    "weight": "",
+    "breath_quality": 95
+  }
+]
