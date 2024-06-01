@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 import '../data_manager.dart';
@@ -37,60 +36,63 @@ class SleepDurationChart extends StatelessWidget {
       previousDuration += percentage;
     }
 
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Expanded(
-          child: AspectRatio(
-            aspectRatio: 0.55,
-            child: BarChart(
-              BarChartData(
-                maxY: 110,
-                barGroups: [
-                  BarChartGroupData(
-                    x: 0,
-                    barRods: [
-                      BarChartRodData(
-                        y: previousDuration,
-                        colors: [Colors.transparent],
-                        width: 40,
-                        rodStackItems: stackItems,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        double chartHeight = constraints.maxHeight;
+        double maxY = chartHeight * 0.55; // 총 수면 시간의 110%로 maxY 설정
+
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: AspectRatio(
+                aspectRatio: 0.55,
+                child: BarChart(
+                  BarChartData(
+                    maxY: maxY,
+                    barGroups: [
+                      BarChartGroupData(
+                        x: 0,
+                        barRods: [
+                          BarChartRodData(
+                            y: previousDuration,
+                            colors: [Colors.transparent],
+                            width: 40,
+                            rodStackItems: stackItems,
+                          ),
+                        ],
                       ),
                     ],
-                  ),
-                ],
-                titlesData: FlTitlesData(show: false),
-                borderData: FlBorderData(show: false),
-                alignment: BarChartAlignment.spaceAround,
-                // barTouchData: BarTouchData(enabled: false),
-                barTouchData: BarTouchData(
-                  touchTooltipData: BarTouchTooltipData(
-                    tooltipBgColor: Colors.blueGrey,
-                    tooltipPadding: EdgeInsets.all(2),
-                    tooltipMargin: 10,
-                    getTooltipItem: (group, groupIndex, rod, rodIndex) {
-                      return BarTooltipItem(
-                        '${stages[rodIndex]}: ${durations[rodIndex]} mins\n'
-                            '${stages[rodIndex+1]}: ${durations[rodIndex+1]} mins\n'
-                            '${stages[rodIndex+2]}: ${durations[rodIndex+2]} mins\n'
-                            '${stages[rodIndex+3]}: ${durations[rodIndex+2]} mins',
-                        TextStyle(color: Colors.white, fontSize: 11),
-                      );
-                    },
+                    titlesData: FlTitlesData(show: false),
+                    borderData: FlBorderData(show: false),
+                    alignment: BarChartAlignment.spaceAround,
+                    barTouchData: BarTouchData(
+                      touchTooltipData: BarTouchTooltipData(
+                        tooltipBgColor: Colors.blueGrey,
+                        tooltipPadding: EdgeInsets.all(2),
+                        tooltipMargin: 10,
+                        getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                          return BarTooltipItem(
+                            '${stages[rodIndex]}: ${durations[rodIndex]} mins',
+                            TextStyle(color: Colors.white, fontSize: 11),
+                          );
+                        },
+                      ),
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 35.0, left: 8.0, right: 8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: List<Widget>.generate(stages.length, (index) => _buildLegendItem(stages[index], colors[index])),
-          ),
-        ),
-      ],
+            Padding(
+              padding: const EdgeInsets.only(top: 35.0, left: 8.0, right: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: List<Widget>.generate(stages.length, (index) => _buildLegendItem(stages[index], colors[index])),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 

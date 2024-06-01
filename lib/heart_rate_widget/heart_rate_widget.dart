@@ -19,9 +19,15 @@ class HeartRateWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Heart Rate:', style: TextStyle(fontWeight: FontWeight.bold)),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Heart Rate:',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
             SizedBox(height: 10),
             Center(
               child: Text(
@@ -32,13 +38,21 @@ class HeartRateWidget extends StatelessWidget {
               ),
             ),
             if (sleepData.items.isNotEmpty)
-              Container(
-                width: 200,
-                height: 40,
-                margin: EdgeInsets.symmetric(vertical: 0),
-                child: CustomPaint(
-                  painter: HeartRateBarPainter(sleepData),
-                ),
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  return Align(
+                    alignment: Alignment(-0.3, 0.0),
+                    child: Container(
+                      width: constraints.maxWidth * 0.9,
+                      height: 40,
+                      // padding: EdgeInsets.zero,
+                      margin: EdgeInsets.symmetric(vertical: 0),
+                      child: CustomPaint(
+                        painter: HeartRateBarPainter(sleepData),
+                      ),
+                    ),
+                  );
+                },
               ),
           ],
         ),

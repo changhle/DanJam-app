@@ -213,21 +213,29 @@ class _SleepAnalysisScreenState extends State<SleepAnalysisScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Expanded(
+                          flex: 1,
                           child: sleepDataMap[selectedDay]!.map((sleepData) => SleepDurationWidget(sleepData)).first,
                         ),
-                        Column(
-                          children: [
-                            Container(
-                              width: 250,
-                              height: 140,
-                              child: sleepDataMap[selectedDay]!.map((sleepData) => HeartRateWidget(sleepData)).first,
-                            ),
-                            Container(
-                              width: 250,
-                              height: 97,
-                              child: sleepDataMap[selectedDay]!.map((sleepData) => SleepInfoWidget(sleepData)).first,
-                            ),
-                          ],
+                        Expanded(
+                          flex: 1,
+                          child: Column(
+                            children: [
+                              Container(
+                                width: double.infinity,
+                                height: 140,
+                                child: Center(
+                                  child: sleepDataMap[selectedDay]!.map((sleepData) => HeartRateWidget(sleepData)).first,
+                                )
+                              ),
+                              Container(
+                                width: double.infinity,
+                                height: 97,
+                                child: Center(
+                                  child: sleepDataMap[selectedDay]!.map((sleepData) => SleepInfoWidget(sleepData)).first,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

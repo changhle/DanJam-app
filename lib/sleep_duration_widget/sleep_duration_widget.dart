@@ -19,13 +19,17 @@ class SleepDurationWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Sleep Duration:', style: TextStyle(fontWeight: FontWeight.bold)),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Sleep Duration:', style: TextStyle(fontWeight: FontWeight.bold)),
+            ),
             if (sleepData.items.isNotEmpty)
               Container(
                 width: 200,
-                height: 180,
+                height: 183,
                 margin: EdgeInsets.symmetric(vertical: 0),
                 child: SleepDurationChart(sleepData: sleepData),
               ),

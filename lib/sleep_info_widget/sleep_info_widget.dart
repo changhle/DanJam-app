@@ -17,13 +17,14 @@ class SleepInfoWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 5),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  '         Breath Quality:',
+                  'Breath Quality:',
                   style: TextStyle(
                     fontSize: 14,
                   ),
@@ -39,9 +40,10 @@ class SleepInfoWidget extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  '         Awake Time:',
+                  'Awake Time:',
                   style: TextStyle(
                     fontSize: 14,
                   ),

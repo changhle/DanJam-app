@@ -31,17 +31,17 @@ class OpenAIAnalysisService {
       userMessage,
     ];
 
-    // OpenAIChatCompletionModel chatCompletion =
-    // await OpenAI.instance.chat.create(
-    //   // model: 'gpt-3.5-turbo-0125',
-    //   model: 'ft:gpt-3.5-turbo-0125:ces-capstone::9P4Tzz1e',
-    //   messages: requestMessages,
-    //   maxTokens: 300,
-    // );
-    //
-    // String message =
-    // chatCompletion.choices.first.message.content![0].text.toString();
-    // return message;
-    return "hello";
+    OpenAIChatCompletionModel chatCompletion =
+    await OpenAI.instance.chat.create(
+      // model: 'gpt-3.5-turbo-0125',
+      model: 'ft:gpt-3.5-turbo-0125:ces-capstone::9P4Tzz1e',
+      messages: requestMessages,
+      maxTokens: 300,
+    );
+
+    String message =
+    chatCompletion.choices.first.message.content![0].text.toString();
+    return message;
+    // return "hello";
   }
 }
